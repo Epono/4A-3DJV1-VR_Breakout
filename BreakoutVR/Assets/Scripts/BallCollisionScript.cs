@@ -114,6 +114,11 @@ public class BallCollisionScript : MonoBehaviour
 			ballMovement.FirstShoot();
 			LastBound = boundDown;
 		}
+		if (Input.GetKey(KeyCode.R))
+		{
+			ballMovement.FirstShoot();
+			LastBound = boundDown;
+		}
 	}
 
 	//void OnCollisionEnter2D(Collision2D coll)
