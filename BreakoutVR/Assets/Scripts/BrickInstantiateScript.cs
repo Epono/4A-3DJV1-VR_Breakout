@@ -20,15 +20,11 @@ public class BrickInstantiateScript : MonoBehaviour
 		var i = nbBrick;
 		var startPoint = new Vector2((bound.center.x - bound.max.x) + sizeX, (bound.center.y + bound.max.y) - sizeY);
 		var endPoint = new Vector2((bound.center.x + bound.max.x) - sizeX, (bound.center.y - bound.max.y) + sizeY);
-		//Debug.Log("Start : " + startPoint);
-		//Debug.Log("End : " + endPoint);
 		while(i >= 0)
 		{
-			//Debug.Log("while, i = " + i + ", start y : " + startPoint.y + ", end y : " + endPoint.y + ", sizeY : " + sizeY);
-			for(var j = startPoint.y ; j >= endPoint.y ; j -= sizeY)
+			for(var j = startPoint.y ; j >= endPoint.y ; j -= (int)sizeY * 0.55f)
 			{
-				//Debug.Log("for1, j = " + j);
-				for(var k = startPoint.x ; k <= endPoint.x ; k += sizeX)
+				for(var k = startPoint.x ; k <= endPoint.x ; k += (int)sizeX*0.55f)
 				{
 					if(i < 0)
 						break;
@@ -36,6 +32,7 @@ public class BrickInstantiateScript : MonoBehaviour
 					if (rand > 50f)
 					{
 						var go = Instantiate(brick) as GameObject;
+						go.GetComponent<SpriteRenderer>().color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f), 1);
 						go.transform.position = new Vector2(k, j);
 						i--;
 					}

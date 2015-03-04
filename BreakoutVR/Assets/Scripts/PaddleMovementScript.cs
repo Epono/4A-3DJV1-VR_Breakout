@@ -14,10 +14,15 @@ public class PaddleMovementScript : MonoBehaviour
 	public BoxCollider2D boxleft;
 	public BoxCollider2D boxRight;
 	public BoxCollider2D boxcenter;
-
+	public static bool isMoving = false;
+	public SpriteRenderer hand;
 
 	void Update()
 	{
+		if(isMoving)
+			hand.color = new Color(hand.color.r, hand.color.g, hand.color.b, 1f);
+		else
+			hand.color = new Color(hand.color.r, hand.color.g, hand.color.b, 0.5f);
 		/*pour la main ce sera : 
 		 * transform.position = new Vector3(positionMain.x, transform.position.y);;
 		 */

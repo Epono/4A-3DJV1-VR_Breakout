@@ -108,7 +108,7 @@ public class BallCollisionScript : MonoBehaviour
 		}
 		else if(boundDown.Intersects(ballBound))
 		{
-			Debug.Log("boundDown");
+			//Debug.Log("boundDown");
 			sprite.enabled = false;
 			Thread.Sleep(100);
 			ballMovement.FirstShoot();

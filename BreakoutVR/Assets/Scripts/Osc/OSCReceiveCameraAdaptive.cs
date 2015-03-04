@@ -146,9 +146,9 @@ public class OSCReceiveCameraAdaptive : MonoBehaviour {
         float posX = (float)oscMessage.Values[0];
         float posY = (float)oscMessage.Values[1];
         float posZ = (float)oscMessage.Values[2];
-        Debug.Log(msgString); //log the message and values coming from OSC
+        //Debug.Log(msgString); //log the message and values coming from OSC
         //FUNCTIONS YOU WANT CALLED WHEN A SPECIFIC MESSAGE IS RECEIVED
-        Debug.Log("message tag: " + msgAddress);
+        //Debug.Log("message tag: " + msgAddress);
         switch(msgAddress) {
             case "/tracker/head/pos_xyz/cyclope_eye":
                 //Debug.Log("eye position received: " +  posX + " - " + posY + " - " + posZ);
@@ -177,7 +177,12 @@ public class OSCReceiveCameraAdaptive : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void LateUpdate() {
+    void LateUpdate()
+    {
+	    if (Cyclop_eye_pos == Vector3.zero)
+		    PaddleMovementScript.isMoving = false;
+	    else
+			PaddleMovementScript.isMoving = true;
         object_to_look.transform.position = new Vector3(Cyclop_eye_pos.x + 5, object_to_look.transform.position.y, object_to_look.transform.position.z);
     }
 }
