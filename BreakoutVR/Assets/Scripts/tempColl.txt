@@ -1,0 +1,22 @@
+﻿if(boundUp.Intersects(ballBound))
+		{
+			Debug.Log("boundUp");
+		}
+		if(boundDown.Intersects(ballBound))
+		{
+			Debug.Log("boundDown");
+			sprite.enabled = false;
+			Thread.Sleep(100);
+		}
+		if(boundRight.Intersects(ballBound))
+		{
+			Debug.Log("boundRight");
+		}
+		if(boundLeft.Intersects(ballBound))
+		{
+			Debug.Log("boundLeft");
+		}
+		if(boundPaddle.Intersects(ballBound))
+		{
+			Debug.Log("boundPaddle");
+		}
